@@ -52,12 +52,9 @@ function App() {
                   type="checkbox"
                   checked={task.done}
                   onChange={() => {
-                    const newTasks = tasks.map((t) => {
-                      if (t.id === task.id) {
-                        return { ...t, done: !t.done }
-                      }
-                      return t
-                    })
+                    const newTasks = tasks.map((t) =>
+                      t.id === task.id ? { ...t, done: !t.done } : t,
+                    )
                     setTasks(newTasks)
                   }}
                 />
